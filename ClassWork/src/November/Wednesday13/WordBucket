@@ -1,0 +1,57 @@
+
+    private ArrayList<String> word = new ArrayList<>();
+    private ArrayList<String> noRepeats;
+    private String mostFrequent;
+
+    private word(ArrayList<String> word) {
+        this.word = word;
+    }
+
+    private void add(String item) {
+        if (size() == 0) {
+            mostFrequent = item;
+        } else {
+            if (getCountOf(item) > getCountOf(mostFrequent)) {
+                mostFrequent = item;
+            }
+        }
+        word.add(item);
+        if (!noRepeats.contains(item)) {
+            noRepeats.add(item);
+        }
+    }
+
+    private void addwhole(String item, long count) {
+        for (int i = 0; i < count; i++) {
+            word.add(item);
+        }
+    }
+
+    private int getCountOf(String word) {
+        int count = 0;
+        for (int i = 0; i < word.size(); i++) {
+            if (word.get(i).equals(word)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private int size() {
+        return word.size();
+    }
+
+    private int getNumUnique() {
+        return noRepeats.size();
+    }
+
+    private int getfrequency(String item) {
+        int count = 0;
+        for (int i = 0; i < word.size(); i++) {
+            if (word.get(i).equals(item)) {
+                count++;
+            }
+
+        }
+        return count;
+    }
